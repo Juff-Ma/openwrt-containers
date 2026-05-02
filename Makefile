@@ -2,7 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=podman-containers
 PKG_VERSION:=1.0.0
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_LICENSE:=Apache-2.0
 PKG_MAINTAINER:=Julian Rossbach <contact@juffma.de>
@@ -40,10 +40,10 @@ endef
 
 define Package/podman-containers/install
 	$(INSTALL_DIR) $(1)/etc/config
-	$(INSTALL_CONF) ./files/containers/podman.conf $(1)/etc/config/podman
+	$(INSTALL_CONF) ./files/podman.conf $(1)/etc/config/podman
 
 	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/containers/containers.init $(1)/etc/init.d/containers
+	$(INSTALL_BIN) ./files/containers.init $(1)/etc/init.d/containers
 endef
 
 $(eval $(call BuildPackage,podman-containers))
